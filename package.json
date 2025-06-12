@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "question",
   "version": "0.0.0",
   "scripts": {
@@ -40,5 +41,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
+=======
+  "devDependencies": {
+    "@angular/cli": "^14.2.13"
+>>>>>>> eb5b1dd4ec411cd6fe414e1014fb3bc85387f2cd
   }
 }
