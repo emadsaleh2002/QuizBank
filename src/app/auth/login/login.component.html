@@ -1,1 +1,64 @@
-<p>login works!</p>
+<div class="login-container d-flex align-items-center justify-content-center">
+    <!-- Center Content Holder -->
+    <div class="container-fluid p-0">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh;">
+
+            <!-- Information Section (Hidden on Small Screens for Space) -->
+            <!-- <div class="text-center mb-4 d-none d-md-block col-12" style="max-width: 800px;">
+                <h1 class="display-4 fw-bold mb-2 text-white" style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);">
+                    QuizBank</h1>
+
+            </div> -->
+
+            <!-- Login Form Card -->
+            <div class="col-12 col-sm-10 col-md-6 col-lg-4  login-form-wrapper">
+                <div class="card shadow-lg border-0"
+                    style="background-color: rgba(255, 255, 255, 0.95); border-radius: 12px;">
+                    <div class="card-header text-center py-3"
+                        style="background-color: #003366; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                        <h4 class="mb-0 text-white">Login</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-secondary">Email Address</label>
+                                <input type="email" class="form-control" id="email" formControlName="email"
+                                    [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                                    class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="password" class="form-label text-secondary">Password</label>
+                                <input type="password" class="form-control" id="password" formControlName="password"
+                                    [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                                    class="invalid-feedback">
+                                    Password must be at least 6 characters.
+                                </div>
+                            </div>
+
+                            <!-- Error Message Display -->
+                            <div *ngIf="errorMessage" class="alert alert-danger text-center py-2" role="alert"
+                                style="background-color: #f8d7da; border-color: #f5c6cb; color: #DC3545;">
+                                {{ errorMessage }}
+                            </div>
+
+                            <button type="submit" class="btn w-100 mb-3 text-white fw-bold"
+                                [disabled]="loginForm.invalid"
+                                style="background-color: #E8A24F; border-color: #E8A24F;">
+                                Login
+                            </button>
+                            <p class="text-center mt-3">
+                                Don't have an account? <a routerLink="/register"
+                                    style="color: #003366; font-weight: 500;">Register here</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

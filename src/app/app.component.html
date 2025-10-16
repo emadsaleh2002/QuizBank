@@ -1,27 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1a68d4;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">QuizBank</a>
+    <a class="navbar-brand" href="#" style="color: #ffffff;">QuizBank</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Home</a>
+          <a class="nav-link" routerLink="/home" *ngIf="isLoggedIn" style="color: #ffffff;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/quiz/1">Take Quiz</a>
+          <a class="nav-link" routerLink="/quiz/1" *ngIf="isLoggedIn" style="color: #ffffff;">Take Quiz</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+          <a class="nav-link" routerLink="/admin" *ngIf="isAdmin" style="color: #ffffff;">Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
+          <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn" style="color: #ffffff;">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" *ngIf="!isLoggedIn" style="color: #ffffff;">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" *ngIf="isLoggedIn" style="color: #ffffff; cursor: pointer;">Logout</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="container-fluid">
+
+<div>
   <router-outlet></router-outlet>
 </div>
